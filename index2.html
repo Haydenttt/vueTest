@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <span v-if="seen">Now you see me</span> -->
+
+      <!-- <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol> -->
+
+      <!-- <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button> -->
+
+      <!-- <span>Multiline message is:</span>
+      <p style="white-space: pre-line;border:1px double chocolate">
+        {{ message }}
+      </p>
+      <br />
+      <input v-model="message" />
+      <textarea v-model="message" placeholder="add multiple lines"></textarea> -->
+
+      <!-- <ul>
+        <todo-item></todo-item>
+        <todo-item></todo-item>
+      </ul> -->
+
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        >
+        </todo-item>
+      </ol>
+
+      <var></var>
+    </div>
+
+    <!-- https://vuejs.org/v2/guide/list.html#key -->
+
+    <script src="index2.js"></script>
+  </body>
+</html>

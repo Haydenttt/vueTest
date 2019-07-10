@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css"
+    />
+    <link rel="stylesheet" href="index3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <style>
+      /* resets */
+      * {
+        color: inherit;
+      }
+      input {
+        font: inherit;
+        border: unset;
+        background: unset;
+      }
+      input:focus {
+        outline: unset;
+      }
+
+      :root {
+        font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto",
+          sans-seri;
+      }
+
+      #app {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        font-weight: 900;
+        font-size: 8rem;
+        color: hsl(0, 0%, 100%);
+        background: hsl(240, 100%, 67%);
+        user-select: none;
+      }
+
+      input {
+        text-align: center;
+      }
+
+      img {
+        width: 8rem;
+        height: 8rem;
+        vertical-align: calc(-0.12109375em);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <p>hello, world!</p> -->
+      <!-- <p v-text="message"></p> -->
+      <!-- <p v-html="message"></p> -->
+
+      <!-- <input type="text" v-model="message2"></input>
+    <p v-html="
+    					message1.slice(0, 7) +
+    					message2 +
+    					message1.slice(12)
+                "></p> -->
+
+      <!-- <p v-html="incendio(lumos(wizard))"></p> -->
+
+      <!-- Control Flow -->
+
+      <!-- 打印wizard及其宠物（1） -->
+      <!-- <p
+        v-html="wizard + ' ' + (
+    					wizard == harry    ? hedwig      :
+    					wizard == ron      ? scabbers    :
+    					wizard == hermione ? crookshanks : ''
+    				)"
+      ></p> -->
+
+      <!-- 打印wizard及其宠物（2） -->
+      <!-- <p v-if="wizard == harry" v-html="wizard + ' ' + hedwig"></p>
+      <p v-if="wizard == ron" v-html="wizard + ' ' + scabbers"></p>
+      <p v-if="wizard == hermione" v-html="wizard + ' ' + crookshanks"></p> -->
+
+      <!-- 遍历wizards（1） -->
+      <!-- 不会渲染template，只显示content -->
+      <!-- <template v-if="wizard===ron" style="display: none;visibility: hidden;">
+        <p v-html="harry    + ' ' + hedwig     "></p>
+        <p v-html="ron      + ' ' + scabbers   "></p>
+        <p v-html="hermione + ' ' + crookshanks"></p>
+      </template> -->
+
+      <!-- 遍历wizards（2） -->
+      <!-- <p
+        v-for="wizard in wizards()"
+        v-html="wizard.name + ' ' + wizard.pet"
+      ></p> -->
+
+      <!-- <p v-html="harry"></p> -->
+      <!-- <harry></harry> -->
+      <wizard :name="harry" :cast="oculus_reparo"></wizard>
+      <wizard :name="ron" :cast="wingardium_leviosa"></wizard>
+      <wizard :name="hermione" :cast="alohomora"></wizard>
+    </div>
+
+    <script>
+      //   console.log("Hello, Vue! 🎉");
+
+      // this is a single-line comment
+
+      /*
+            this is a multiline comment
+          */
+
+      // this is a multiple single-line comments
+      // this is a multiple single-line comments
+      // this is a multiple single-line comments
+
+      //   ("use strict");
+
+      // var bin = true
+      // var str = "hello, world!"
+      // var num = 3.14
+
+      // console.log(bin)
+      // console.log(str)
+      // console.log(num)
+
+      // var o1 = { a: 3 };
+      // var o2 = o1;
+      // o1.a = 5;
+      // console.log(o2);
+      // o1 = 4;
+      // console.log(o1);
+      // console.log(o2);
+
+      // var x = 1;
+      // var y = x;
+      // x = 2;
+      // console.log(y);
+
+      // var foo = "bar";
+      // var obj = {
+      //   foo: 1,
+      //   bar: 2
+      // };
+      // console.log(obj.foo);
+      // console.log(obj[foo]);
+
+      //   var arr = ["hello, world!", "hello, darkness..."];
+
+      //   console.log(arr);
+      //   console.log(arr[0]);
+      //   console.log(arr[1]);
+
+      //   var obj1 = {
+      //     key1: "val1", // or "key1"
+      //     key2: "val2"
+      //   };
+
+      //   console.log(obj1);
+      //   console.log(obj1.key1);
+      // console.log(obj1.key2)
+      //   console.log(obj1["key1"]);
+      // console.log(obj1["key2"])
+
+      //   var obj2 = {
+      //     obj3: {
+      //       key1: "val1",
+      //       key2: "val2"
+      //     }
+      //   };
+
+      //   console.log(obj2);
+      //   console.log(obj2.obj3);
+      //   console.log(obj2.obj3.key1);
+      //   console.log(obj2.obj3.key2);
+      //   console.log(obj2.obj3["key1"]);
+      //   console.log(obj2.obj3["key2"]);
+
+      //   if (false) {
+      //     console.log("if");
+      //   } else if (true) {
+      //     console.log("else if");
+      //   } else {
+      //     console.log("else");
+      //   }
+
+      //   true ? console.log(true) : console.log(false);
+
+      // for (var x = 0; x < 3; x++) {
+      //   console.log(x);
+      // }
+
+      //   for (var msg of ["how", "are", "you"]) {
+      //     console.log(msg);
+      //   }
+
+      //   function fun(arg) {
+      //     if (!arg) {
+      //       arg = "world";
+      //     }
+      //     return "hello, " + arg + "!";
+      //   }
+
+      //   console.log(fun);
+      //   console.log(fun());
+      //   console.log(fun("js"));
+      // console.log(message2)
+
+      ("use strict");
+
+      // emojify returns the corresponding emoji image
+      function emojify(name) {
+        var out = `<img src="emojis/` + name + `.png">`;
+        return out;
+      }
+
+      // cast returns a spell (function) that decorates the wizard
+      // function cast(emoji) {
+      //   if (!emoji) {
+      //     emoji = "¯\\_(ツ)_/¯";
+      //   }
+      //   return function(wizard) {
+      //     return emoji + wizard + emoji;
+      //   };
+      // }
+
+      function cast(emoji) {
+        var magic = emojify("magic");
+        return function(wizard) {
+          return wizard + " " + magic + " " + emoji + " " + magic;
+        };
+      }
+
+      Vue.component("harry", { template: `<p>` + emojify("harry") + `</p>` });
+      Vue.component("wizard", {
+        props: ["name", "cast"],
+        template: `<p v-html="cast(name)"><slot></slot></p>`
+      });
+
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message1: "Hello, World! <br/>" + emojify("celebration"),
+          message2: "Vue",
+          //   wizard: emojify("wizard")
+          wizard: "",
+          harry: emojify("harry"),
+          hedwig: emojify("hedwig"),
+          ron: emojify("ron"),
+          scabbers: emojify("scabbers"),
+          hermione: emojify("hermione"),
+          crookshanks: emojify("crookshanks")
+        },
+        methods: {
+          lumos: cast(emojify("lumos")),
+          incendio: cast(emojify("incendio")),
+
+          // oculus_reparo returns a spell (function) that repairs glasses
+          oculus_reparo: cast(emojify("oculus-reparo")),
+          // wingardium_leviosa returns a spell (function) that levitates an object
+          wingardium_leviosa: cast(emojify("wingardium-leviosa")),
+          // alohomora returns a spell (function) that unlocks a door
+          alohomora: cast(emojify("alohomora")),
+
+          wizards: function() {
+            return [
+              { name: this.harry, pet: this.hedwig },
+              { name: this.ron, pet: this.scabbers },
+              { name: this.hermione, pet: this.crookshanks }
+            ];
+          }
+        }
+      });
+      // app.wizard = app.ron;
+    </script>
+  </body>
+</html>
